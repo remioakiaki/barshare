@@ -94,3 +94,7 @@ RSpec.configure do |config|
   Kernel.srand config.seed
 =end
 end
+require 'capybara/rspec'
+Capybara.register_driver :rack_test do |app|
+  Capybara::RackTest::Driver.new(app, :browser => :firefox)
+end
