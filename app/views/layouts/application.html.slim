@@ -13,8 +13,8 @@ html
 
   body
     = render 'layouts/header'
-    / .container.main
-    /   = render 'layouts/flash_messages'
-    /   = yield
+    .container.main
+      = render 'layouts/flash_messages'
+      = yield
     / /div#samplemodal class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"
-    / = render 'layouts/footer'
+    = render 'layouts/footer'
