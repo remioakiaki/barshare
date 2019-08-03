@@ -1,14 +1,14 @@
 
--if logged_in?
-  =render 'shared/micropost_form'
--else
-  =form_with( scope: :session, url: login_path,local: :true) do |f|
-    = f.hidden_field :email, value: "test@test.com"
-    = f.hidden_field :password, value: "password"
-    = f.submit "テストユーザーでログイン", class:"btn btn-success btn-new-user"
+/ -if logged_in?
+/   =render 'shared/micropost_form'
+/ -else
+/   =form_with( scope: :session, url: login_path,local: :true) do |f|
+/     = f.hidden_field :email, value: "test@test.com"
+/     = f.hidden_field :password, value: "password"
+/     = f.submit "テストユーザーでログイン", class:"btn btn-success btn-new-user"
 
-=render @feed_items
-=will_paginate @feed_items, :renderer => BootstrapPagination::Rails, :previous_label => ' &lt 前へ', :next_label => '次へ &gt'
+/ =render @feed_items
+/ =will_paginate @feed_items, :renderer => BootstrapPagination::Rails, :previous_label => ' &lt 前へ', :next_label => '次へ &gt'
 
 
 
