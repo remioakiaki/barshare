@@ -44,6 +44,6 @@ module Barshare
                        request_specs: false
       g.fixture_replacement :factory_bot, dir: "spec/factories"
     end
-
+    config.generators.template_engine = :slim
   end
 end
