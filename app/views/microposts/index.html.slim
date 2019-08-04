@@ -6,4 +6,4 @@
 
 - if @microposts.any?
   = render @microposts
-  = will_paginate @microposts, :renderer => BootstrapPagination::Rails, :previous_label => ' &lt 前へ', :next_label => '次へ &gt'
+  = paginate @microposts

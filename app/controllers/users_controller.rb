@@ -31,10 +31,10 @@ class UsersController < ApplicationController
     end
   end
   def index
-    # @q = User.ransack(params[:q])
-    # @users = @q.result.order(created_at: :desc)
-    #            .paginate(page: params[:page], per_page: 10)
-    @users = User.all
+    @q = User.ransack(params[:q])
+    @users = @q.result.order(created_at: :desc)
+               .page(params[:page]).per(10)
+    
   end
   def destroy
     User.find(params[:id]).destroy

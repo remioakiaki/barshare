@@ -23,7 +23,7 @@ nav.navbar.navbar-inverse
                     li = link_to "ログアウト",logout_path, method: :delete
             li.nav-item = link_to "お店検索", restaurants_path
             li.nav-item = link_to "ユーザー一覧",users_path
-            /li.nav-item = link_to "投稿検索",microposts_path
+            li.nav-item = link_to "投稿検索",microposts_path
 
           - else
             li.nav-item = link_to "新規登録", signup_path 

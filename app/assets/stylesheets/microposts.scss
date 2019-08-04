@@ -65,6 +65,15 @@
   width:80%;
  }
 
- .input-lg{
-  font-size: 16px;
+//吹き出し
+.balloon1-left {
+  //position: relative;
+  padding: 8px 8px;
+  //margin:5px 0px;
+  //width:100%;
+  //min-width: 120px;
+  max-width: 100%;
+  color: #555;
+  background: #e0edff;
+  border-radius: 15px;
 }

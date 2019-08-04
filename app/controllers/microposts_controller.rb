@@ -9,7 +9,7 @@ class MicropostsController < ApplicationController
       flash[:success] = '投稿が完了しました'
       redirect_to root_path
     else
-       @feed_items = current_user.feed.paginate(page: params[:page], per_page: 5)
+       @feed_items = current_user.feed.page(params[:page]).per(10)
        flash.now[:danger] = '投稿に失敗しました'
        render 'static_pages/home'
 
@@ -40,7 +40,7 @@ class MicropostsController < ApplicationController
   def index
     @q = Micropost.ransack(params[:q])
     @microposts = @q.result.order(created_at: :desc)
-                    .paginate(page: params[:page], per_page: 10)
+                    .page(params[:page]).per(10)
   end
 
   private
