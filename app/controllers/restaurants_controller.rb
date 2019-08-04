@@ -15,14 +15,12 @@ class RestaurantsController < ApplicationController
 
 
 
-    # require 'net/http'
-    # require 'uri'
-    # require 'json'
-    # require 'logger'
-    # require 'dotenv'
-    # require 'active_support'
-    # require 'active_support/core_ext'
-    #require 'kaminari'
+    require 'net/http'
+    require 'uri'
+    require 'json'
+    require 'active_support'
+    require 'active_support/core_ext'
+    require 'kaminari'
     
     params = URI.encode_www_form(array)
   
