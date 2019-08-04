@@ -1,3 +1,36 @@
-// Place all the styles related to the StaticPages controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+//ヘッダー
+@media (min-width: 768px){
+  .dropdown-toggle{
+    padding-top: 15px;
+    padding-bottom: 15px;
+    
+  }
+}
+.dropdown-toggle{
+  background-color: #222;
+  border: 0;
+  
+  color: #9d9d9d;
+}
+.dropdown-toggle:hover{
+  color: #fff;
+}
+
+.dropdown-menu{
+  margin: 0 0;
+  background-color: #222;
+}
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus{
+    color: #fff;
+    background-color: #222;
+}
+.dropdown-menu > li > a{
+  color: #9d9d9d;
+}
+
+.comcol{
+  .col-xs-4.col-xs-offset-2{
+    padding:0px 0px;
+  }
+  
+}
