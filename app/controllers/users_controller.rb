@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :admin_user, only: :destroy
+  before_action :correct_user, only: %i[edit update]
   def show
     @user = User.find(params[:id])
     @microposts = Micropost.where(user_id:params[:id])
