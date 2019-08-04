@@ -17,6 +17,7 @@ ja:
         email: メールアドレス
         password: パスワード
         password_confirmation: パスワード(確認)
+        introduce: プロフィール
 
       micropost:
         content: 投稿内容
