@@ -1,0 +1,50 @@
+.post
+  .prof
+    = image_tag micropost.user.picture.url,:size =>'50x50', :class => "img-circle"
+    = link_to user_path(micropost.user) do
+      = micropost.user.name
+  //編集フォーム、削除 
+  
+  .menu1
+    -if logged_in? && current_user?(micropost.user)
+        .btn-group role="group"
+          = link_to edit_micropost_path(micropost),class: "btn btn-default micropost_edit_#{micropost.id}",remote:true do
+            span.glyphicon.glyphicon-pencil aria-hidden="true"
+          = link_to micropost, method: :delete,class: "btn btn-default micropost_delete_#{micropost.id}" do
+            span.glyphicon.glyphicon-trash aria-hidden="true"
+        div#editmodal class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"
+  
+  .content
+    .balloon1-left
+      p= micropost.content 
+  
+    -if micropost.pictures?
+      .row
+        -micropost.pictures.each do |p|  
+          .col-xs-6.col-md-3
+            =image_tag p.url, multiple: true,class: "mwidth" 
+
+  
+    /div class="comment comment_form_#{micropost.id}" id="comment" 
+      div class="slide slide_#{micropost.id}" value="#{micropost.id}" style="height:#{comment_height(micropost.comments.count)}px"
+      div class="form form_#{micropost.id}"
+
+    //コメントフォームの表示、非表示、いいね
+  /.menu2
+    - if logged_in?
+      = link_to micropost_comments_path(micropost.id),id:"opnbtn",class:"btn btn-opn_#{micropost.id}",remote: true  do
+        span.glyphicon.glyphicon-comment aria-hidden="true" 
+        
+      div class="btn btn-cls_#{micropost.id}" value="#{micropost.id}" id="clsbtn"
+        span.glyphicon.glyphicon-remove aria-hidden="true"
+
+      /div id="likes_buttons_#{micropost.id}" class="like"
+        = render 'likes/like', micropost: micropost
+
+      -if micropost.title.present?
+        .search1
+          = form_with url: restaurants_path,method: :get,local: true do |f|
+            = f.hidden_field :name,value:micropost.title, placeholder: "お店名を入力", class: 'form-control'
+            = button_tag( class: "btn micropost_search_#{micropost.id}") do
+              span.glyphicon.glyphicon-search aria-hidden="true"
+            

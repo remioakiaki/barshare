@@ -3,8 +3,8 @@
       = image_tag user.picture.url,:size =>'50x50', :class => "img-circle"
       = link_to user_path(user) do
         = user.name
-    /.menu1
-      - if logged_in?
+    .menu1
+      - if logged_in? && !current_user?(user) 
        div class="relation-btn_#{user.id} text-right"
          = render 'relationships/relationship', user: user
     .content

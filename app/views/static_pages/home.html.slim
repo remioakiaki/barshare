@@ -7,8 +7,9 @@
     = f.hidden_field :password, value: "password"
     = f.submit "テストユーザーでログイン", class:"btn btn-success btn-new-user"
 
-/ =render @feed_items
-/ =will_paginate @feed_items, :renderer => BootstrapPagination::Rails, :previous_label => ' &lt 前へ', :next_label => '次へ &gt'
+=render @feed_items
+= paginate @feed_items
+
 
 
 

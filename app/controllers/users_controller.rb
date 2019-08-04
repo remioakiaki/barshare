@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
-    #@microposts = Micropost.where(user_id:params[:id])
+    @microposts = Micropost.where(user_id:params[:id])
     
   end
   def new
@@ -41,10 +41,30 @@ class UsersController < ApplicationController
     flash[:success] = 'ユーザーは削除されました'
     redirect_to users_url
   end
+  def following
+    @user = User.find(params[:id])
+    @users = @user.following
+    render :show_follow
+  end
+
+  def followers
+    @user  = User.find(params[:id])
+    @users = @user.followers
+    render :show_follow
+  end
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation, :picture,:introduce)
-                                 
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :picture,
+                                 :unique_name, :address1, :address2, :zipcode, :introduce)
+  end
+
+  def admin_user
+    redirect_to root_url unless current_user.admin?
+  end
+
+  def correct_user
+    @user = User.find(params[:id])
+    redirect_to(current_user) unless @user == current_user
   end
 end
