@@ -25,7 +25,7 @@
             =image_tag p.url, multiple: true,class: "mwidth" 
 
   
-    /div class="comment comment_form_#{micropost.id}" id="comment" 
+    div class="comment comment_form_#{micropost.id}" id="comment" 
       div class="slide slide_#{micropost.id}" value="#{micropost.id}" style="height:#{comment_height(micropost.comments.count)}px"
       div class="form form_#{micropost.id}"
 

@@ -9,4 +9,8 @@ module ApplicationHelper
       page_title + " | " + base_title
     end
   end
+
+  def comment_height(cnt)
+    cnt == 0 ? 100 : 300
+  end
 end

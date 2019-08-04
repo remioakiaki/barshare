@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   resources :microposts, only: %i[create destroy edit update index] do
     resources :comments, only: %i[create index ]
   end
+  resources :comments,only: %i[edit update destroy]
   resources :relationships, only: %i[create destroy]
   resources :likes, only: %i[create destroy]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

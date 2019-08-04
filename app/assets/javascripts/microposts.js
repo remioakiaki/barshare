@@ -1,2 +1,6 @@
-// Place all the behaviors and hooks related to the matching controller here.
-// All this logic will automatically be available in application.js.
+$(document).on('click', "#clsbtn", function() {
+  var val = $(this).attr("value");
+  $('.comment_form_' + val ).slideUp();
+  $('.btn-cls_' + val).hide();
+  $('.btn-opn_' + val).css('display','inline') ;
+});
