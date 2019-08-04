@@ -22,27 +22,27 @@ class User < ApplicationRecord
    validate :picture_size
 
 
-  # # いいね
-  # has_many :likes, dependent: :destroy
-  # has_many :likeposts, through: :likes, source: :micropost
+  # いいね
+  has_many :likes, dependent: :destroy
+  has_many :likeposts, through: :likes, source: :micropost
   # # コメント
   # has_many :comments
 
-  # # いいね追加
-  # def good(micropost)
-  #   likeposts << micropost
-  # end
+  # いいね追加
+  def good(micropost)
+    likeposts << micropost
+  end
 
-  # # いいね削除
-  # def notgood(micropost)
-  #   like = likes.find_by(micropost_id: micropost.id)
-  #   like&.destroy
-  # end
+  # いいね削除
+  def notgood(micropost)
+    like = likes.find_by(micropost_id: micropost.id)
+    like&.destroy
+  end
 
-  # # いいね登録判定
-  # def likepost?(micropost)
-  #   likeposts.include?(micropost)
-  # end
+  # いいね登録判定
+  def likepost?(micropost)
+    likeposts.include?(micropost)
+  end
 
   def self.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
