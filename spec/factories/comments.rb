@@ -1,5 +1,7 @@
 FactoryBot.define do
   factory :comment do
-    content { "MyText" }
+    content { 'コメント' }
+    association :user
+    association :micropost
   end
 end

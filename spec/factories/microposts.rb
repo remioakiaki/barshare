@@ -1,8 +1,6 @@
 FactoryBot.define do
   factory :micropost do
-    content { "MyText" }
-    pictures { "" }
-    likes_count { 1 }
-    title { "MyString" }
+    content { 'Rspec実施中' }
+    association :user
   end
 end
