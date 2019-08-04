@@ -8,5 +8,8 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
   resources :users
+  resources :microposts, only: %i[create destroy edit update index] do
+    resources :comments, only: %i[create index ]
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
