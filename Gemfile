@@ -49,15 +49,25 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'pry-byebug'
+  
+  
+  gem 'rails-controller-testing'
+  
+  
+  #gem 'chromedriver-helper'
+  
+  
+  gem "launchy", "~> 2.3.0"
+end
+
+group :test do
+  gem 'capybara', "~> 2.15.0"
+  gem 'selenium-webdriver'
+  gem 'webdrivers'
+  
   gem 'rspec-rails'
   gem 'factory_bot_rails'
-  gem 'rails-controller-testing'
-  gem "capybara", "~> 2.15.0"
-  gem 'selenium-webdriver'
-  #gem 'chromedriver-helper'
-  gem 'webdriver'
   gem 'shoulda-matchers'
-  gem "launchy", "~> 2.3.0"
 end
 
 group :development do

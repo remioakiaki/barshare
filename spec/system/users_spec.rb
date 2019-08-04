@@ -22,6 +22,7 @@ describe 'ユーザー登録機能' do
 
   describe '編集機能' do
     it 'プロフィール編集テスト' do
+      visit root_path
       sign_in_as user
       visit edit_user_path(user)
       fill_in 'user[name]',	with: 'テストユーザー'
