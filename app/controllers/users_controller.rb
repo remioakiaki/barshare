@@ -18,6 +18,29 @@ class UsersController < ApplicationController
       render :new
     end
   end
+  def edit
+    @user = User.find(params[:id])
+  end
+  def update
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      flash[:success] = '更新完了'
+      redirect_to @user
+    else
+      render :edit
+    end
+  end
+  def index
+    # @q = User.ransack(params[:q])
+    # @users = @q.result.order(created_at: :desc)
+    #            .paginate(page: params[:page], per_page: 10)
+    @users = User.all
+  end
+  def destroy
+    User.find(params[:id]).destroy
+    flash[:success] = 'ユーザーは削除されました'
+    redirect_to users_url
+  end
   private
 
   def user_params

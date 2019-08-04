@@ -20,4 +20,84 @@ class User < ApplicationRecord
   # validates :introduce, length: { maximum: 100 }
   # mount_uploader :picture, PictureUploader
   # validate :picture_size
+
+
+  # # いいね
+  # has_many :likes, dependent: :destroy
+  # has_many :likeposts, through: :likes, source: :micropost
+  # # コメント
+  # has_many :comments
+
+  # # いいね追加
+  # def good(micropost)
+  #   likeposts << micropost
+  # end
+
+  # # いいね削除
+  # def notgood(micropost)
+  #   like = likes.find_by(micropost_id: micropost.id)
+  #   like&.destroy
+  # end
+
+  # # いいね登録判定
+  # def likepost?(micropost)
+  #   likeposts.include?(micropost)
+  # end
+
+  def self.digest(string)
+    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
+                                                  BCrypt::Engine.cost
+    BCrypt::Password.create(string, cost: cost)
+  end
+
+  def self.new_token
+    SecureRandom.urlsafe_base64
+  end
+
+  def remember
+    self.remember_token = User.new_token
+    update_attribute(:remember_digest, User.digest(remember_token))
+  end
+
+  def authenticated?(remember_token)
+    return false if remember_digest.nil?
+
+    BCrypt::Password.new(remember_digest).is_password?(remember_token)
+  end
+
+  # 永続ログインの解除
+  def forget
+    update_attribute(:remember_digest, nil)
+  end
+
+  # # ユーザーをフォローする
+  # def follow(other_user)
+  #   following << other_user
+  # end
+
+  # # ユーザーをフォロー解除する
+  # def unfollow(other_user)
+  #   active_relationships.find_by(followed_id: other_user.id).destroy
+  # end
+
+  # # 現在のユーザーがフォローしてたらtrueを返す
+  # def following?(other_user)
+  #   following.include?(other_user)
+  # end
+
+  # # 必要な投稿を取得
+  # def feed
+  #   Micropost.where("user_id IN (:following_ids)
+  #   OR user_id     =   :user_id",
+  #                   following_ids: following_ids, user_id: id).includes([:user])
+  # end
+
+  # private
+
+#   # アップロード画像のサイズを検証する
+#   def picture_size
+#     errors.add(:image, 'should be less than 5MB') if picture.size > 5.megabytes
+#   end
+# end
+
 end
