@@ -9,7 +9,7 @@ describe 'ユーザー登録機能' do
   describe 'ユーザー新規登録', type: :system do
     it '新規登録テスト' do
       expect  do
-        visit signin_path
+        visit signup_path
         fill_in 'user[name]',	with: 'testuser'
         fill_in 'user[email]',	with: 'ak@ak.com'
         fill_in 'user[password]',	with: 'password'

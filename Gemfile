@@ -53,6 +53,10 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'rails-controller-testing'
   gem "capybara", "~> 2.15.0"
+  gem 'selenium-webdriver'
+  #gem 'chromedriver-helper'
+  gem 'webdriver'
+  gem 'shoulda-matchers'
   gem "launchy", "~> 2.3.0"
 end
 
