@@ -21,13 +21,13 @@ nav.navbar.navbar-inverse
                   ul class="dropdown-menu"
                     li = link_to "マイページ",current_user
                     li = link_to "ログアウト",logout_path, method: :delete
-            /li.nav-item = link_to "お店検索", restaurants_path
+            li.nav-item = link_to "お店検索", restaurants_path
             li.nav-item = link_to "ユーザー一覧",users_path
             /li.nav-item = link_to "投稿検索",microposts_path
 
           - else
             li.nav-item = link_to "新規登録", signup_path 
             li.nav-item = link_to "ログイン", login_path
-            /li.nav-item = link_to "お店検索", restaurants_path
+            li.nav-item = link_to "お店検索", restaurants_path
 
 

@@ -1,0 +1,27 @@
+-@restaurants.each do |restaurant|
+
+  .post
+    .row
+      .col-xs-12
+        b = link_to restaurant[:url] do
+             = restaurant[:name]
+    .row
+      .col-md-3.col-xs-12
+        - if restaurant[:image_url][:shop_image1].empty?
+          = image_tag 'no_image.jpg' , class: 'img-responsive center-block' ,:size =>'200x200'
+        - else
+          = image_tag restaurant[:image_url][:shop_image1] , class: 'img-responsive center-block' 
+        
+      .col-md-9.col-xs-12
+        b 営業時間
+        li = restaurant[:opentime]
+        br
+        b 休業日
+        li = restaurant[:holiday]
+        br
+        b 予算
+        li = restaurant[:budget]
+        br
+        li = restaurant[:pr][:pr_short]
+        
+          

@@ -1,0 +1,10 @@
+.search
+  = form_with url: restaurants_path,method: :get,local: true do |f|
+    = f.text_field :name, placeholder: "お店名を入力", class: 'form-control'
+    = f.text_field :freeword1, placeholder: "キーワードで検索(スペースを入れるとAND検索)", class: 'form-control'
+    .btn-parent
+      = f.submit "お店を検索", class: "btn btn-primary"
+
+  -if @restaurants.present?
+    = render 'restaurants', restaurants: @restaurants
+    = paginate @restaurants

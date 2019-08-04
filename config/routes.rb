@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'restaurants/index'
+  get 'renstaurants/index'
   get 'likes/create'
   get 'likes/destroy'
   get 'sessions/new'
@@ -20,5 +22,6 @@ Rails.application.routes.draw do
   resources :comments,only: %i[edit update destroy]
   resources :relationships, only: %i[create destroy]
   resources :likes, only: %i[create destroy]
+  resources :restaurants, only: %i[index]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
