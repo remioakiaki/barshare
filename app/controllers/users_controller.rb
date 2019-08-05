@@ -1,14 +1,17 @@
+# frozen_string_literal: true
+
 class UsersController < ApplicationController
   before_action :admin_user, only: :destroy
   before_action :correct_user, only: %i[edit update]
   def show
     @user = User.find(params[:id])
-    @microposts = Micropost.where(user_id:params[:id])
-    
+    @microposts = Micropost.where(user_id: params[:id])
   end
+
   def new
     @user = User.new
   end
+
   def create
     @user = User.new(user_params)
 
@@ -20,9 +23,11 @@ class UsersController < ApplicationController
       render :new
     end
   end
+
   def edit
     @user = User.find(params[:id])
   end
+
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
@@ -32,17 +37,19 @@ class UsersController < ApplicationController
       render :edit
     end
   end
+
   def index
     @q = User.ransack(params[:q])
     @users = @q.result.order(created_at: :desc)
                .page(params[:page]).per(10)
-    
   end
+
   def destroy
     User.find(params[:id]).destroy
     flash[:success] = 'ユーザーは削除されました'
     redirect_to users_url
   end
+
   def following
     @user = User.find(params[:id])
     @users = @user.following
@@ -54,6 +61,7 @@ class UsersController < ApplicationController
     @users = @user.followers
     render :show_follow
   end
+
   private
 
   def user_params

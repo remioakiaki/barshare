@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   get 'restaurants/index'
   get 'renstaurants/index'
@@ -17,9 +19,9 @@ Rails.application.routes.draw do
     end
   end
   resources :microposts, only: %i[create destroy edit update index] do
-    resources :comments, only: %i[create index ]
+    resources :comments, only: %i[create index]
   end
-  resources :comments,only: %i[edit update destroy]
+  resources :comments, only: %i[edit update destroy]
   resources :relationships, only: %i[create destroy]
   resources :likes, only: %i[create destroy]
   resources :restaurants, only: %i[index]

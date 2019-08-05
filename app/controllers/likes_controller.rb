@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class LikesController < ApplicationController
   def create
     @micropost = Micropost.find(params[:micropost_id])

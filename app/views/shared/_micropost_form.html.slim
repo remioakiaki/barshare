@@ -6,22 +6,6 @@
   = f.file_field :pictures, multiple: true ,  accept: 'image/jpeg,image/gif,image/png'
   .btn-space
     = f.submit "投稿", class: "btn btn-primary"
-/ .row.post-form
-/   .col-md-4.col-md-offset-4.col-xs-12
-/     = form_with model: @micropost,local: true do |f|
-/       .row
-/         .col-xs-12
-/           = render 'shared/error_messages', object: f.object
-/           = f.text_area :content, placeholder: "お店の思い出を投稿", class: 'form-control'
-/       .row
-/         .col-xs-12
-/           = f.text_field :title, placeholder: "お店の名前を入力", class: 'form-control'
-/       .row
-/         .col-md-3.col-xs-2
-/           = f.submit "投稿", class: "btn btn-primary"
-/         .col-md-3.col-xs-2
-/           span#pictures
-/             = f.file_field :pictures, multiple: true ,  accept: 'image/jpeg,image/gif,image/png'
 
 javascript:
   $('input').change( function() {

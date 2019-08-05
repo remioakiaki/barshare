@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Micropost < ApplicationRecord
   validates :user_id, presence: true
   validates :content, presence: true, length: { maximum: 140 }
@@ -19,8 +21,6 @@ class Micropost < ApplicationRecord
 
   # アップロード画像のサイズを検証する
   def picture_size
-    if pictures.size > 5.megabytes
-      errors.add(:picture, 'should be less than 5MB')
-    end
+    errors.add(:picture, 'should be less than 5MB') if pictures.size > 5.megabytes
   end
 end

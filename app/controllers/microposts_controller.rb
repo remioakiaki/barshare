@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class MicropostsController < ApplicationController
   before_action :logged_in_user, only: %i[create edit destroy]
   before_action :correct_user,   only: %i[destroy edit]
@@ -9,9 +11,9 @@ class MicropostsController < ApplicationController
       flash[:success] = '投稿が完了しました'
       redirect_to root_path
     else
-       @feed_items = current_user.feed.page(params[:page]).per(10)
-       flash.now[:danger] = '投稿に失敗しました'
-       render 'static_pages/home'
+      @feed_items = current_user.feed.page(params[:page]).per(10)
+      flash.now[:danger] = '投稿に失敗しました'
+      render 'static_pages/home'
 
     end
   end
@@ -46,7 +48,7 @@ class MicropostsController < ApplicationController
   private
 
   def micropost_params
-    params.require(:micropost).permit(:title,:content, :picture, :updated_at, pictures:[])
+    params.require(:micropost).permit(:title, :content, :picture, :updated_at, pictures: [])
   end
 
   def correct_user
@@ -55,9 +57,9 @@ class MicropostsController < ApplicationController
   end
 
   def logged_in_user
-    unless logged_in?
-      flash[:danger] = 'ログインしてください'
-      redirect_to login_url
-    end
+    return if logged_in?
+
+    flash[:danger] = 'ログインしてください'
+    redirect_to login_url
   end
 end

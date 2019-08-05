@@ -1,0 +1,56 @@
+inherit_from: .rubocop_todo.yml
+
+AllCops:
+  Exclude:
+    - "tmp/**/*"
+    - "config/initializers/*"
+    - "vendor/**/*"
+    - "db/schema.rb"
+    - "node_modules/**/*"
+    - "db/migrate/*.rb"
+    - "bin/*"
+    - 'app/controllers/restaurants_controller.rb'
+  DisplayCopNames: true
+  TargetRubyVersion: 2.6.1
+
+Rails:
+  Enabled: true
+
+Style/AndOr:
+  EnforcedStyle: conditionals
+
+Style/AsciiComments:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/NumericLiterals:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Bundler/OrderedGems:
+  Enabled: false
+
+Lint/ShadowedException:
+  Enabled: false
+
+Metrics/LineLength:
+  Exclude:
+    - 'config/**/*'
+  Max: 100
+
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*'
+    - 'config/routes.rb'
+    - 'db/migrate/**/*'
+    - 'db/schema.rb'
+
+Metrics/AbcSize:
+  Max: 30
+
+Metrics/MethodLength:
+  Max: 15

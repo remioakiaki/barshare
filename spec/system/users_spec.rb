@@ -10,10 +10,10 @@ describe 'ユーザー登録機能' do
     it '新規登録テスト' do
       expect  do
         visit signup_path
-        fill_in 'user[name]',	with: 'testuser'
-        fill_in 'user[email]',	with: 'ak@ak.com'
-        fill_in 'user[password]',	with: 'password'
-        fill_in 'user[password_confirmation]',	with: 'password'
+        fill_in 'user[name]', with: 'testuser'
+        fill_in 'user[email]', with: 'ak@ak.com'
+        fill_in 'user[password]', with: 'password'
+        fill_in 'user[password_confirmation]', with: 'password'
         click_button '新規登録'
       end.to change { User.count }.by(+1)
       expect(page).to have_content('登録成功')
@@ -25,7 +25,7 @@ describe 'ユーザー登録機能' do
       visit root_path
       sign_in_as user
       visit edit_user_path(user)
-      fill_in 'user[name]',	with: 'テストユーザー'
+      fill_in 'user[name]', with: 'テストユーザー'
       click_on '更新'
       expect(page).to have_content '更新完了'
     end
