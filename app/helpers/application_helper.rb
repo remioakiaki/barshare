@@ -12,6 +12,6 @@ module ApplicationHelper
   end
 
   def comment_height(cnt)
-    cnt.zero ? 100 : 300
+    cnt.to_i.zero? ? 100 : 300
   end
 end
