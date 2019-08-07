@@ -1,4 +1,4 @@
-好きなお店を共有し、検索もできるSNSです
+好きなお店を共有し、検索もできるSNSです  
 https://barshare1206.herokuapp.com/
 ## 機能と使用技術
 
