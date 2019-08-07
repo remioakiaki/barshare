@@ -43,7 +43,11 @@ class UsersController < ApplicationController
     @users = @q.result.order(created_at: :desc)
                .page(params[:page]).per(10)
   end
-
+  def likes
+    @user = User.find(params[:id])
+    @microposts = @user.likeposts
+    render :show
+  end
   def destroy
     User.find(params[:id]).destroy
     flash[:success] = 'ユーザーは削除されました'

@@ -3,7 +3,7 @@ ul.nav.nav-tabs.nav-justified
       =link_to user_path(@user) do 
         =@user.microposts.count
         |投稿
-    /li class="#{'active' if current_page?(likes_user_path(@user))}"
+    li class="#{'active' if current_page?(likes_user_path(@user))}"
       =link_to likes_user_path(@user) do 
         =@user.likes.count
         |いいね
