@@ -1,24 +1,21 @@
-# README
+好きなお店を共有したり、調べることもできるSNSです
+https://barshare1206.herokuapp.com/
+## 機能と使用技術
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+- インフラ(Heroku)
+- 単体・統合テスト(RSpec, factory_bot, capybara)
+- データベース(PostgreSQL)
+- 画像アップロード(Amason S3, carrierwave, mini_magick, fog)
+- ページネーション(kaminari)
+- お店情報取得(ぐるなびAPI)
+- 検索(ransack)
+- デザイン(Bootstrap)  
+- 認証関連(ログイン, 管理者ユーザー)
+- ユーザー関連（フォロー・フォロワー）
+- 投稿関連（コメント機能、いいね機能）
 
-Things you may want to cover:
+## 環境
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- 言語(Ruby 2.6.1)
+- フレームワーク(Rails 5.2.3) 
+- 開発(VSCode)
