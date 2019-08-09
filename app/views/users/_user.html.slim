@@ -10,7 +10,7 @@
     .content
     -if user.introduce.present?
       .balloon1-left
-        =user.introduce
-    - if logged_in?
-      - if current_user.admin? && !current_user?(user) 
-        li= link_to 'delete', user_path(user), method: :delete
+    /     =user.introduce
+    / - if logged_in?
+    /   - if current_user.admin? && !current_user?(user) 
+    /     li= link_to 'delete', user_path(user), method: :delete
